@@ -1,10 +1,9 @@
 import React from 'react';
 import { 
   GraduationCap, Calendar, MapPin, Award, CheckCircle2, 
-  TrendingUp, Sparkles, BookOpen, Layers 
+  TrendingUp, BookOpen 
 } from 'lucide-react';
 import { resumeData } from '../data/resumeData';
-import { sounds } from '../utils/sound';
 
 export default function Education() {
   const [btech, kv] = resumeData.education;

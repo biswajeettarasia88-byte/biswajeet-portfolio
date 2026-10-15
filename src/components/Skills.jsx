@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { 
-  Terminal, Cpu, Code2, Database, Wrench, FileCheck, 
-  Search, ShieldCheck, Sparkles, CheckCircle2, Layers 
+  Terminal, Cpu, Code2, Wrench, FileCheck, 
+  Search, ShieldCheck, Sparkles, CheckCircle2 
 } from 'lucide-react';
 import { resumeData } from '../data/resumeData';
 import { sounds } from '../utils/sound';

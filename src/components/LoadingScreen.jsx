@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Terminal, Shield, Sparkles } from 'lucide-react';
+import { Terminal } from 'lucide-react';
 
 export default function LoadingScreen({ onFinish }) {
   const [progress, setProgress] = useState(0);
   const [stepText, setStepText] = useState('Initializing quantum core...');
 
   useEffect(() => {
+    let finishTimeout;
     const steps = [
       { at: 15, text: 'Mounting verified resume telemetry...' },
       { at: 40, text: 'Loading IIT Gandhinagar LINGO research modules...' },
@@ -23,7 +24,7 @@ export default function LoadingScreen({ onFinish }) {
         }
         if (next >= 100) {
           clearInterval(timer);
-          setTimeout(() => {
+          finishTimeout = setTimeout(() => {
             if (onFinish) onFinish();
           }, 350);
           return 100;
@@ -32,7 +33,10 @@ export default function LoadingScreen({ onFinish }) {
       });
     }, 28);
 
-    return () => clearInterval(timer);
+    return () => {
+      clearInterval(timer);
+      if (finishTimeout) clearTimeout(finishTimeout);
+    };
   }, [onFinish]);
 
   return (

@@ -1,17 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { 
-  FileText, Download, ExternalLink, CheckCircle2, 
-  Sparkles, ShieldCheck, Eye, Layers 
+  FileText, Download, ExternalLink, CheckCircle2, Eye 
 } from 'lucide-react';
 import { resumeData } from '../data/resumeData';
 import { sounds } from '../utils/sound';
 import confetti from 'canvas-confetti';
 
 export default function ResumeSection({ onOpenResume }) {
-  const [selectedDoc, setSelectedDoc] = useState('technical');
-
-  const doc = resumeData.personal.resumes[selectedDoc];
-
   const handleDownload = (file) => {
     sounds.success();
     confetti({

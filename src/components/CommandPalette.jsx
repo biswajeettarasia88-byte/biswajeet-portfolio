@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  Search, X, FileText, Download, Mail, Phone, ExternalLink, 
+  Search, X, FileText, Download, Mail, Phone, 
   Terminal, Sparkles, GraduationCap, Briefcase, Code, Award, Volume2, VolumeX 
 } from 'lucide-react';
 import { resumeData } from '../data/resumeData';
@@ -15,11 +15,15 @@ export default function CommandPalette({ isOpen, onClose, onOpenResume, soundEna
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault();
         sounds.click();
-        onClose ? onClose(!isOpen) : null;
+        if (onClose) {
+          onClose(!isOpen);
+        }
       }
       if (e.key === 'Escape' && isOpen) {
         sounds.click();
-        onClose(false);
+        if (onClose) {
+          onClose(false);
+        }
       }
     };
     window.addEventListener('keydown', handleKeyDown);

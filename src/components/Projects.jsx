@@ -1,6 +1,6 @@
+import React, { useState, useEffect } from 'react';
 import { 
-  Sparkles, ExternalLink, Terminal, ShieldCheck, 
-  Layers, Cpu, CheckCircle2, ChevronRight, X, ArrowUpRight, Lock 
+  Sparkles, ShieldCheck, CheckCircle2, X, ArrowUpRight 
 } from 'lucide-react';
 import { resumeData } from '../data/resumeData';
 import { sounds } from '../utils/sound';
@@ -8,6 +8,16 @@ import { sounds } from '../utils/sound';
 export default function Projects() {
   const [filter, setFilter] = useState('all');
   const [selectedProject, setSelectedProject] = useState(null);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape' && selectedProject) {
+        setSelectedProject(null);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedProject]);
 
   const categories = [
     { id: 'all', label: 'All Projects' },

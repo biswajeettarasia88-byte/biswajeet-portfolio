@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUp, Terminal, ShieldCheck } from 'lucide-react';
+import { ArrowUp, ShieldCheck } from 'lucide-react';
 import { resumeData } from '../data/resumeData';
 import { sounds } from '../utils/sound';
 

@@ -1,11 +1,28 @@
-import React, { useState } from 'react';
-import { X, Download, ExternalLink, Printer, FileText, CheckCircle2, Sparkles, BookOpen } from 'lucide-react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { X, Download, ExternalLink, Printer, FileText, CheckCircle2 } from 'lucide-react';
 import { resumeData } from '../data/resumeData';
 import { sounds } from '../utils/sound';
 import confetti from 'canvas-confetti';
 
 export default function ResumeModal({ isOpen, onClose, initialType = 'technical' }) {
-  const [activeType, setActiveType] = useState(initialType);
+  const [userSelectedType, setUserSelectedType] = useState(null);
+  const activeType = userSelectedType || initialType;
+
+  const handleClose = useCallback(() => {
+    setUserSelectedType(null);
+    if (onClose) onClose();
+  }, [onClose]);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape' && isOpen) {
+        handleClose();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, handleClose]);
+
   const currentResume = resumeData.personal.resumes[activeType] || resumeData.personal.resumes.technical;
 
   if (!isOpen) return null;
@@ -34,7 +51,10 @@ export default function ResumeModal({ isOpen, onClose, initialType = 'technical'
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 bg-slate-950/85 backdrop-blur-xl animate-in fade-in duration-200">
+    <div 
+      className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 bg-slate-950/85 backdrop-blur-xl animate-in fade-in duration-200"
+      onClick={handleClose}
+    >
       <div 
         className="w-full max-w-5xl h-[92vh] flex flex-col rounded-2xl bg-slate-900 border border-cyan-500/30 shadow-[0_0_60px_rgba(6,182,212,0.25)] overflow-hidden"
         onClick={(e) => e.stopPropagation()}
@@ -65,7 +85,7 @@ export default function ResumeModal({ isOpen, onClose, initialType = 'technical'
             <button
               onClick={() => {
                 sounds.click();
-                setActiveType('technical');
+                setUserSelectedType('technical');
               }}
               className={`px-3 py-1.5 rounded-lg transition-all ${
                 activeType === 'technical'
@@ -78,7 +98,7 @@ export default function ResumeModal({ isOpen, onClose, initialType = 'technical'
             <button
               onClick={() => {
                 sounds.click();
-                setActiveType('research');
+                setUserSelectedType('research');
               }}
               className={`px-3 py-1.5 rounded-lg transition-all ${
                 activeType === 'research'
@@ -102,6 +122,16 @@ export default function ResumeModal({ isOpen, onClose, initialType = 'technical'
               <span>Download PDF</span>
             </button>
 
+            <button
+              onClick={handlePrint}
+              onMouseEnter={() => sounds.hover()}
+              className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-mono transition-all"
+              title="Print document"
+            >
+              <Printer className="w-3.5 h-3.5" />
+              <span>Print</span>
+            </button>
+
             <a
               href={currentResume.file}
               target="_blank"
@@ -117,7 +147,7 @@ export default function ResumeModal({ isOpen, onClose, initialType = 'technical'
             <button
               onClick={() => {
                 sounds.click();
-                onClose();
+                handleClose();
               }}
               className="p-1.5 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-400 hover:text-white transition-colors"
               title="Close modal"

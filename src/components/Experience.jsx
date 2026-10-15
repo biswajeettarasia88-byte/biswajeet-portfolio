@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { 
-  Briefcase, Calendar, MapPin, Building, ChevronRight, CheckCircle2, 
-  ExternalLink, Sparkles, Terminal, FileText, Award 
+  Briefcase, Calendar, Building, ChevronRight, CheckCircle2, 
+  Sparkles, FileText, Award 
 } from 'lucide-react';
 import { resumeData } from '../data/resumeData';
 import { sounds } from '../utils/sound';
@@ -29,7 +29,7 @@ export default function Experience({ onOpenResume }) {
 
         {/* Timeline Layout */}
         <div className="relative border-l-2 border-cyan-500/20 ml-4 md:ml-32 space-y-12">
-          {resumeData.experience.map((exp, idx) => {
+          {resumeData.experience.map((exp) => {
             const isSelected = activeExp === exp.id;
             return (
               <div 

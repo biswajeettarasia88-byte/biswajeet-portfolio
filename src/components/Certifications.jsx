@@ -1,10 +1,9 @@
 import React from 'react';
 import { 
-  Award, Trophy, ShieldCheck, CheckCircle2, Flame, 
-  Globe, GitPullRequest, Code, Sparkles, ExternalLink 
+  Award, Trophy, ShieldCheck, Flame, 
+  Globe, GitPullRequest, Code 
 } from 'lucide-react';
 import { resumeData } from '../data/resumeData';
-import { sounds } from '../utils/sound';
 
 export default function Certifications() {
   const getIcon = (iconName) => {

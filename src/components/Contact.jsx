@@ -1,6 +1,7 @@
+import React, { useState } from 'react';
 import { 
   Mail, Phone, MapPin, Send, CheckCircle2, Copy, Check, 
-  Sparkles, Terminal, MessageSquare 
+  MessageSquare 
 } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, YoutubeIcon, MediumIcon } from './SocialIcons';
 import { resumeData } from '../data/resumeData';

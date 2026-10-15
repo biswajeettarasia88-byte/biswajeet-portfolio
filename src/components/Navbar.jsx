@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  Menu, X, FileText, Command, Volume2, VolumeX, Sparkles, 
-  Terminal, ShieldCheck, ChevronRight 
+  Menu, X, FileText, Command, Volume2, VolumeX, ChevronRight 
 } from 'lucide-react';
 import { resumeData } from '../data/resumeData';
 import { sounds } from '../utils/sound';
@@ -82,7 +81,7 @@ export default function Navbar({ onOpenResume, onOpenPalette, soundEnabled, onTo
             </div>
             <div>
               <div className="font-sans font-extrabold text-sm tracking-tight text-slate-100 group-hover:text-cyan-300 transition-colors flex items-center gap-1.5">
-                Biswajeet Tarasia
+                {resumeData.personal.name}
                 <span className="hidden xl:inline-flex text-[10px] font-mono px-1.5 py-0.2 rounded bg-cyan-950/60 text-cyan-400 border border-cyan-500/30">
                   AI & ML
                 </span>
@@ -229,7 +228,7 @@ export default function Navbar({ onOpenResume, onOpenPalette, soundEnabled, onTo
             </button>
 
             <div className="text-center text-[11px] font-mono text-slate-500 pt-2">
-              Biswajeet Tarasia • CSVTU AI&ML • IIT Gn Intern
+              {resumeData.personal.name} • CSVTU AI&ML • IIT Gn Intern
             </div>
           </div>
         </div>

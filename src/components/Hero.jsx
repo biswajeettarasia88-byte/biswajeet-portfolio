@@ -1,17 +1,18 @@
+import React, { useState, useEffect } from 'react';
 import { 
-  ArrowRight, Download, FileText, Sparkles, Terminal, ShieldCheck, 
-  Mail, Phone, ExternalLink, Cpu, ChevronDown, CheckCircle 
+  ArrowRight, FileText, Terminal, ShieldCheck, 
+  Mail, Cpu, ChevronDown 
 } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './SocialIcons';
 import { resumeData } from '../data/resumeData';
 import { sounds } from '../utils/sound';
 
+const titles = resumeData.personal.subtitles;
+
 export default function Hero({ onOpenResume }) {
   const [titleIndex, setTitleIndex] = useState(0);
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
-
-  const titles = resumeData.personal.subtitles;
 
   // Typewriter effect for animated titles
   useEffect(() => {
@@ -34,13 +35,15 @@ export default function Hero({ onOpenResume }) {
           setDisplayText(currentTitle.slice(0, displayText.length - 1));
         }, 40);
       } else {
-        setIsDeleting(false);
-        setTitleIndex((prev) => (prev + 1) % titles.length);
+        timeout = setTimeout(() => {
+          setIsDeleting(false);
+          setTitleIndex((prev) => (prev + 1) % titles.length);
+        }, 300);
       }
     }
 
     return () => clearTimeout(timeout);
-  }, [displayText, isDeleting, titleIndex, titles]);
+  }, [displayText, isDeleting, titleIndex]);
 
   return (
     <section id="home" className="relative min-h-screen pt-28 pb-16 flex items-center justify-center overflow-hidden">

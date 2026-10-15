@@ -1,7 +1,7 @@
 import React from 'react';
 import { 
-  Sparkles, Terminal, BookOpen, Layers, ShieldCheck, MapPin, 
-  Calendar, Globe, Mail, Phone, Cpu, Award, ExternalLink 
+  Sparkles, Terminal, BookOpen, Layers, ShieldCheck, 
+  Calendar, Globe, Mail, Phone, Cpu, Award 
 } from 'lucide-react';
 import { resumeData } from '../data/resumeData';
 import { sounds } from '../utils/sound';
