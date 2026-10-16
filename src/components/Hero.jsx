@@ -206,6 +206,9 @@ export default function Hero({ onOpenResume }) {
                       const target = e.currentTarget;
                       if (!target.dataset.triedFallback) {
                         target.dataset.triedFallback = 'true';
+                        target.src = `${import.meta.env.BASE_URL}Biswajeet_Tarasia_Photo.jpeg`;
+                      } else if (!target.dataset.triedFallback2) {
+                        target.dataset.triedFallback2 = 'true';
                         target.src = `${import.meta.env.BASE_URL}biswajeet-tarasia.jpg`;
                       }
                     }}

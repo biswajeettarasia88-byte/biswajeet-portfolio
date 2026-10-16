@@ -15,7 +15,7 @@ export const resumeData = {
     location: "Durg, Chhattisgarh, India",
     dob: "27 December 2004",
     nationality: "Indian",
-    photo: `${import.meta.env.BASE_URL}biswajeet-tarasia.jpg`,
+    photo: `${import.meta.env.BASE_URL}Biswajeet_Tarasia_Photo.jpeg`,
     links: {
       github: "https://github.com/biswajeettarasia88-byte",
       linkedin: "https://www.linkedin.com/in/biswajeet-tarasia-981611373/",
@@ -32,7 +32,7 @@ export const resumeData = {
       },
       research: {
         title: "Academic Research CV (2-Page OIST/IIT Format)",
-        file: `${import.meta.env.BASE_URL}Biswajeet_Tarasia_Research_CV.pdf`,
+        file: `${import.meta.env.BASE_URL}Research_Resume.pdf`,
         pages: 2,
         type: "Academic & Research Focus"
       }

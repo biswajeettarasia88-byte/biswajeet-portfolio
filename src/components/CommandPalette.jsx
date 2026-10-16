@@ -131,7 +131,7 @@ export default function CommandPalette({ isOpen, onClose, onOpenResume, soundEna
       action: () => {
         const a = document.createElement('a');
         a.href = resumeData.personal.resumes.technical.file;
-        a.download = 'Biswajeet_Tarasia_Resume.pdf';
+        a.download = resumeData.personal.resumes.technical.file.split('/').pop().split('?')[0].split('#')[0];
         a.target = '_blank';
         document.body.appendChild(a);
         a.click();
@@ -148,7 +148,7 @@ export default function CommandPalette({ isOpen, onClose, onOpenResume, soundEna
       action: () => {
         const a = document.createElement('a');
         a.href = resumeData.personal.resumes.research.file;
-        a.download = 'Biswajeet_Tarasia_Research_CV.pdf';
+        a.download = resumeData.personal.resumes.research.file.split('/').pop().split('?')[0].split('#')[0];
         a.target = '_blank';
         document.body.appendChild(a);
         a.click();
