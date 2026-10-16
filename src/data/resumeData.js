@@ -17,11 +17,11 @@ export const resumeData = {
     nationality: "Indian",
     photo: `${import.meta.env.BASE_URL}biswajeet-tarasia.jpg`,
     links: {
-      github: "https://github.com/biswajeettarasia",
-      linkedin: "https://linkedin.com/in/biswajeet-tarasia",
+      github: "https://github.com/biswajeettarasia88-byte",
+      linkedin: "https://www.linkedin.com/in/biswajeet-tarasia-981611373/",
       medium: "https://medium.com/@biswajeettarasia88",
-      youtube: "https://youtube.com/@biswajeettarasia",
-      openreview: "https://openreview.net"
+      youtube: "https://www.youtube.com/@BiswajeetTarasia",
+      openreview: "https://openreview.net/profile?id=%7EBiswajeet_Tarasia1"
     },
     resumes: {
       technical: {
