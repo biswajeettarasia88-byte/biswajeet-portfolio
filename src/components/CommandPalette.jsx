@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  Search, X, FileText, Download, Mail, Phone, 
+  Search, X, FileText, Download, Mail, Phone, ExternalLink,
   Terminal, Sparkles, GraduationCap, Briefcase, Code, Award, Volume2, VolumeX 
 } from 'lucide-react';
 import { resumeData } from '../data/resumeData';
@@ -185,6 +185,50 @@ export default function CommandPalette({ isOpen, onClose, onOpenResume, soundEna
           setCopiedText('');
           onClose(false);
         }, 1200);
+      }
+    },
+    {
+      id: 'act-open-github',
+      label: 'Open GitHub Profile (@biswajeettarasia88-byte)',
+      category: 'Social Profiles',
+      icon: ExternalLink,
+      action: () => {
+        window.open(resumeData.personal.links.github, '_blank', 'noopener,noreferrer');
+        sounds.click();
+        onClose(false);
+      }
+    },
+    {
+      id: 'act-open-linkedin',
+      label: 'Open LinkedIn Profile (Biswajeet Tarasia)',
+      category: 'Social Profiles',
+      icon: ExternalLink,
+      action: () => {
+        window.open(resumeData.personal.links.linkedin, '_blank', 'noopener,noreferrer');
+        sounds.click();
+        onClose(false);
+      }
+    },
+    {
+      id: 'act-open-medium',
+      label: 'Open Medium Blog (@biswajeettarasia88)',
+      category: 'Social Profiles',
+      icon: ExternalLink,
+      action: () => {
+        window.open(resumeData.personal.links.medium, '_blank', 'noopener,noreferrer');
+        sounds.click();
+        onClose(false);
+      }
+    },
+    {
+      id: 'act-open-youtube',
+      label: 'Open YouTube Channel (@BiswajeetTarasia)',
+      category: 'Social Profiles',
+      icon: ExternalLink,
+      action: () => {
+        window.open(resumeData.personal.links.youtube, '_blank', 'noopener,noreferrer');
+        sounds.click();
+        onClose(false);
       }
     },
     {

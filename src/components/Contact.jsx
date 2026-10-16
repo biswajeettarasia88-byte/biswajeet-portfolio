@@ -8,7 +8,8 @@ import { resumeData } from '../data/resumeData';
 import { sounds } from '../utils/sound';
 import confetti from 'canvas-confetti';
 
-export default function Contact() {
+export default function Contact({ links = resumeData?.personal?.links }) {
+  const profileLinks = links || resumeData.personal.links;
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
 
@@ -159,47 +160,55 @@ export default function Contact() {
                 </div>
                 <div className="grid grid-cols-2 gap-2">
                   <a
-                    href={resumeData.personal.links.github}
+                    href={profileLinks.github}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => sounds.click()}
                     onMouseEnter={() => sounds.hover()}
-                    className="flex items-center gap-2 p-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500/40 text-xs font-mono text-slate-300 hover:text-cyan-300 transition-all"
+                    className="flex items-center gap-2 p-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500/40 text-xs font-mono text-slate-300 hover:text-cyan-300 transition-all cursor-pointer relative z-10"
+                    title="GitHub Profile"
                   >
-                    <GithubIcon className="w-4 h-4 text-cyan-400" />
-                    <span>GitHub</span>
+                    <GithubIcon className="w-4 h-4 text-cyan-400 shrink-0 pointer-events-none" />
+                    <span className="pointer-events-none">GitHub</span>
                   </a>
 
                   <a
-                    href={resumeData.personal.links.linkedin}
+                    href={profileLinks.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => sounds.click()}
                     onMouseEnter={() => sounds.hover()}
-                    className="flex items-center gap-2 p-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500/40 text-xs font-mono text-slate-300 hover:text-cyan-300 transition-all"
+                    className="flex items-center gap-2 p-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500/40 text-xs font-mono text-slate-300 hover:text-cyan-300 transition-all cursor-pointer relative z-10"
+                    title="LinkedIn Profile"
                   >
-                    <LinkedinIcon className="w-4 h-4 text-cyan-400" />
-                    <span>LinkedIn</span>
+                    <LinkedinIcon className="w-4 h-4 text-cyan-400 shrink-0 pointer-events-none" />
+                    <span className="pointer-events-none">LinkedIn</span>
                   </a>
 
                   <a
-                    href={resumeData.personal.links.medium}
+                    href={profileLinks.medium}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => sounds.click()}
                     onMouseEnter={() => sounds.hover()}
-                    className="flex items-center gap-2 p-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500/40 text-xs font-mono text-slate-300 hover:text-cyan-300 transition-all"
+                    className="flex items-center gap-2 p-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500/40 text-xs font-mono text-slate-300 hover:text-cyan-300 transition-all cursor-pointer relative z-10"
+                    title="Medium Publications"
                   >
-                    <MediumIcon className="w-4 h-4 text-purple-400" />
-                    <span>Medium</span>
+                    <MediumIcon className="w-4 h-4 text-purple-400 shrink-0 pointer-events-none" />
+                    <span className="pointer-events-none">Medium</span>
                   </a>
 
                   <a
-                    href={resumeData.personal.links.youtube}
+                    href={profileLinks.youtube}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => sounds.click()}
                     onMouseEnter={() => sounds.hover()}
-                    className="flex items-center gap-2 p-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500/40 text-xs font-mono text-slate-300 hover:text-cyan-300 transition-all"
+                    className="flex items-center gap-2 p-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500/40 text-xs font-mono text-slate-300 hover:text-cyan-300 transition-all cursor-pointer relative z-10"
+                    title="YouTube Channel"
                   >
-                    <YoutubeIcon className="w-4 h-4 text-rose-400" />
-                    <span>YouTube</span>
+                    <YoutubeIcon className="w-4 h-4 text-rose-400 shrink-0 pointer-events-none" />
+                    <span className="pointer-events-none">YouTube</span>
                   </a>
                 </div>
               </div>

@@ -147,22 +147,26 @@ export default function Hero({ onOpenResume }) {
                 href={resumeData.personal.links.github}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => sounds.click()}
                 onMouseEnter={() => sounds.hover()}
-                className="flex items-center gap-1.5 hover:text-cyan-400 transition-colors"
+                className="flex items-center gap-1.5 hover:text-cyan-400 transition-colors cursor-pointer"
+                title="GitHub Profile"
               >
-                <GithubIcon className="w-4 h-4" />
-                <span>GitHub</span>
+                <GithubIcon className="w-4 h-4 pointer-events-none" />
+                <span className="pointer-events-none">GitHub</span>
               </a>
 
               <a
                 href={resumeData.personal.links.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => sounds.click()}
                 onMouseEnter={() => sounds.hover()}
-                className="flex items-center gap-1.5 hover:text-cyan-400 transition-colors"
+                className="flex items-center gap-1.5 hover:text-cyan-400 transition-colors cursor-pointer"
+                title="LinkedIn Profile"
               >
-                <LinkedinIcon className="w-4 h-4" />
-                <span>LinkedIn</span>
+                <LinkedinIcon className="w-4 h-4 pointer-events-none" />
+                <span className="pointer-events-none">LinkedIn</span>
               </a>
 
               <a
