@@ -37,8 +37,11 @@ export default function ResumeModal({ isOpen, onClose, initialType = 'technical'
     });
     const a = document.createElement('a');
     a.href = currentResume.file;
-    a.download = currentResume.file.split('/').pop();
+    a.download = currentResume.file.split('/').pop().split('?')[0].split('#')[0];
+    a.target = '_blank';
+    document.body.appendChild(a);
     a.click();
+    document.body.removeChild(a);
   };
 
   const handlePrint = () => {

@@ -198,6 +198,13 @@ export default function Hero({ onOpenResume }) {
                     alt={resumeData.personal.name}
                     className="h-full w-full object-cover object-center filter saturate-[1.05] contrast-[1.02] group-hover:scale-[1.03] transition-transform duration-500"
                     loading="eager"
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      if (!target.dataset.triedFallback) {
+                        target.dataset.triedFallback = 'true';
+                        target.src = `${import.meta.env.BASE_URL}biswajeet-tarasia.jpg`;
+                      }
+                    }}
                   />
 
                   {/* Subtle futuristic scanline overlay & gradient shade */}

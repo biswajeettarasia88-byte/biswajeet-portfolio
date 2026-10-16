@@ -17,8 +17,11 @@ export default function ResumeSection({ onOpenResume }) {
     });
     const a = document.createElement('a');
     a.href = file;
-    a.download = file.split('/').pop();
+    a.download = file.split('/').pop().split('?')[0].split('#')[0];
+    a.target = '_blank';
+    document.body.appendChild(a);
     a.click();
+    document.body.removeChild(a);
   };
 
   return (

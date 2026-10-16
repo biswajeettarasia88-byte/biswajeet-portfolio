@@ -15,7 +15,7 @@ export const resumeData = {
     location: "Durg, Chhattisgarh, India",
     dob: "27 December 2004",
     nationality: "Indian",
-    photo: "/biswajeet-tarasia.jpg",
+    photo: `${import.meta.env.BASE_URL}biswajeet-tarasia.jpg`,
     links: {
       github: "https://github.com/biswajeettarasia",
       linkedin: "https://linkedin.com/in/biswajeet-tarasia",
@@ -26,13 +26,13 @@ export const resumeData = {
     resumes: {
       technical: {
         title: "Software & AI/ML Resume (1-Page)",
-        file: "/Biswajeet_Tarasia_Resume.pdf",
+        file: `${import.meta.env.BASE_URL}Biswajeet_Tarasia_Resume.pdf`,
         pages: 1,
         type: "Engineering & Development"
       },
       research: {
         title: "Academic Research CV (2-Page OIST/IIT Format)",
-        file: "/Biswajeet_Tarasia_Research_CV.pdf",
+        file: `${import.meta.env.BASE_URL}Biswajeet_Tarasia_Research_CV.pdf`,
         pages: 2,
         type: "Academic & Research Focus"
       }

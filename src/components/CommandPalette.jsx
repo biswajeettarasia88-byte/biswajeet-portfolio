@@ -132,7 +132,27 @@ export default function CommandPalette({ isOpen, onClose, onOpenResume, soundEna
         const a = document.createElement('a');
         a.href = resumeData.personal.resumes.technical.file;
         a.download = 'Biswajeet_Tarasia_Resume.pdf';
+        a.target = '_blank';
+        document.body.appendChild(a);
         a.click();
+        document.body.removeChild(a);
+        sounds.success();
+        onClose(false);
+      }
+    },
+    {
+      id: 'act-download-cv',
+      label: 'Download Academic Research CV (PDF)',
+      category: 'Documents',
+      icon: Download,
+      action: () => {
+        const a = document.createElement('a');
+        a.href = resumeData.personal.resumes.research.file;
+        a.download = 'Biswajeet_Tarasia_Research_CV.pdf';
+        a.target = '_blank';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
         sounds.success();
         onClose(false);
       }
